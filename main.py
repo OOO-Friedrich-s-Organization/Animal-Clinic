@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def building():
-    return "<html>Здесь строится ветеринарная клиника!<html>" \
+    return "<h1>Здесь строится ветеринарная клиника!</h1>" \
            '<img src="static/build.jpg")'\
            "alt='стройка идет' width='300' height='300'>"
 
