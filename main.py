@@ -10,7 +10,7 @@ def building():
            '<img src="static/build.jpg")'\
            "alt='стройка идет' width='300' height='300'>" \
            "<h2>Мы будем по адресу ул.10 лет Октября, 41!</h2>"\
-           '<img src="static/map.jpg")'\
+           '<img src="static/map.JPG")'\
            "alt='адрес' width='300' height='300'>"
 
 
