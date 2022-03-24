@@ -11,7 +11,7 @@ def building():
            "alt='стройка идет' width='300' height='300'>" \
            "<h2>Мы будем по адресу ул.10 лет Октября, 41!</h2>"\
            '<img src="static/map.JPG")'\
-           "alt='адрес' width='300' height='300'>"
+           "alt='адрес' width='600' height='600'>"
 
 
 if __name__ == '__main__':
