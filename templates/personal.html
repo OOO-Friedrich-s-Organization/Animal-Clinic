@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Наши специалисты</h1>
+{% for d in deps %}
+    <h2 align="center">{{d.title}}</h2>
+    <div class="col-md6 border rounded" style="background: skyblue">
+            {% for doc in doctors %}
+                {% if doc.profession == d.id %}
+                    <p>
+                        <img src="static/{{doc.image}}" height="200" width="200" align="middle">
+                        <b>{{doc.surname}} {{doc.name}} {{doc.sec_name}}</b>
+                        {{doc.speciality}}
+                        <br>
+                        Опыт работы: {{doc.experience}} лет/года
+                        <br>
+                        {{doc.description}}
+                        <br>
+                        <blockquote>{{doc.quote}}</blockquote>
+                    </p>
+                {% endif %}
+            {% endfor %}
+    </div>
+{% endfor %}
+{% endblock %}
