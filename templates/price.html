@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Прайс-Лист</h1>
+{% for d in deps %}
+    <h2>{{d.title}}</h2>
+        <ul>
+        {% for p in service %}
+            {% if d.id == p.dep_id %}
+                <li>{{ p.title }} ----- {{ p.cost }} руб.</li>
+            {% endif %}
+        {% endfor %}
+        </ul>
+{% endfor %}
+{% endblock %}
