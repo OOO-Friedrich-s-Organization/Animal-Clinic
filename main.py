@@ -65,6 +65,12 @@ def price():
     return res
 
 
+@app.route('/contacts')
+def contact():
+    res = make_response(render_template("contacts.html"))
+    return res
+
+
 @app.route('/test')
 def test():
     res = make_response(render_template("timetable.html"))
