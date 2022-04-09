@@ -1,25 +1,28 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>Наши специалисты</h1>
-{% for d in deps %}
-    <h2 align="center">{{d.title}}</h2>
-    <div class="col-md6 border rounded" style="background: skyblue">
-            {% for doc in doctors %}
-                {% if doc.profession == d.id %}
-                    <p>
-                        <img src="static/{{doc.image}}" height="200" width="200" align="middle">
-                        <b>{{doc.surname}} {{doc.name}} {{doc.sec_name}}</b>
-                        {{doc.speciality}}
-                        <br>
-                        Опыт работы: {{doc.experience}} лет/года
-                        <br>
-                        {{doc.description}}
-                        <br>
-                        <blockquote>{{doc.quote}}</blockquote>
-                    </p>
-                {% endif %}
-            {% endfor %}
-    </div>
-{% endfor %}
+    <h1 class="center-h1"><b>Наши специалисты</b></h1>
+    {% for spec in specialties %}
+        {% if specialties[spec] %}
+            <h2 class="left-h2"><b>{{ spec }}</b></h2>
+            <div class="doctors">
+                {% for doctor in specialties[spec] %}
+                    <div  class="pd-1 pt-1 doctor-div">
+                        <img src="static/img/{{ doctor.image }}" class="low-sh" height="300" width="230">
+                        <div class="doctor-text">
+                            <b class="doctor-name">{{doctor.surname}} {{doctor.name}} {{doctor.sec_name}}</b>
+                            <p class="spec-name"><b>{{doctor.speciality}}</b></p>
+                            <font class="simple-text">
+                                Опыт работы: {{doctor.experience}} лет/года
+                                <br>
+                                {{doctor.description}}
+                                <br><br>
+                                <blockquote>"{{doctor.quote}}"</blockquote>
+                            </font>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endfor %}
 {% endblock %}
