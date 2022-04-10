@@ -7,7 +7,7 @@
             <h2 class="left-h2"><b>{{ spec }}</b></h2>
             <div class="doctors">
                 {% for doctor in specialties[spec] %}
-                    <div  class="pd-1 pt-1 doctor-div">
+                    <div  class="doctor-div">
                         <img src="static/img/{{ doctor.image }}" class="low-sh" height="300" width="230">
                         <div class="doctor-text">
                             <b class="doctor-name">{{doctor.surname}} {{doctor.name}} {{doctor.sec_name}}</b>
@@ -18,6 +18,7 @@
                                 {{doctor.description}}
                                 <br><br>
                                 <blockquote>"{{doctor.quote}}"</blockquote>
+                                <button type="button" class="btn btn-info sign">Записаться</button>
                             </font>
                         </div>
                     </div>

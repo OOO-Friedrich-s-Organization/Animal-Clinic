@@ -36,8 +36,7 @@ a:hover {
     min-width: 350px;
     float: left;
 
-    transition: color 5s;
-    transition: text-shadow 0.5s;
+    transition: all 0.5s;
 }
 
 .logo:hover {
@@ -117,12 +116,13 @@ footer {
 }
 
 .doctors {
-    margin-bottom: 6%;
     margin-top: 3%;
 }
 
 .doctor-div {
     display: flex;
+    margintop: 1%;
+    margin-bottom: 5%;
 }
 
 .low-sh {
@@ -154,4 +154,20 @@ footer {
 blockquote {
     color: #BBC4BE;
     text-shadow: 0 0 1px #BBC4BE;
+}
+
+.sign, .sign:focus {
+    background-color: #40BA84;
+    border-color: #40BA84;
+    box-shadow: 0 0 1px #40BA84;
+    font-size: 15pt;
+    padding: 1%;
+
+    transition: all 0.5s;
+}
+
+.sign:hover, .sign:active {
+    box-shadow: 0 0 20px #40BA84;
+    background-color: #40BA84;
+    border-color: #40BA84;
 }
