@@ -8,7 +8,7 @@
             {% for doc in doctors %}
                 {% if doc.profession == d.id %}
                     <p>
-                        <img src="static/{{doc.image}}" height="200" width="200" align="middle">
+                        <img src="static/img/{{doc.image}}" height="200" width="200" align="middle">
                         <b>{{doc.surname}} {{doc.name}} {{doc.sec_name}}</b>
                         {{doc.speciality}}
                         <br>
