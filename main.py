@@ -1,4 +1,5 @@
-from flask import Flask, render_template, make_response
+import flask
+from flask import Flask, render_template, make_response, jsonify
 # from flask_login import login_user
 from flask_login import LoginManager, login_user, login_required, logout_user, current_user
 from waitress import serve
@@ -19,6 +20,12 @@ app.config['SECRET_KEY'] = 'yandexlyceum_secret_key'
 login_manager = LoginManager()
 login_manager.init_app(app)
 
+blueprint = flask.Blueprint(
+    'news_api',
+    __name__,
+    template_folder='templates'
+)
+
 @app.route('/')
 @app.route('/build')
 def building():
@@ -35,15 +42,26 @@ def doctors():
     db_name = "db/doctors.db"
     db_session.global_init(db_name)
     db_sess = db_session.create_session()
-    # print('da')
-    #doctors = db_sess.query(Doctor)
+
     doctors = db_sess.query(Doctor).all()
-    # for doc in doctors:
-    #     print(doc.id)
-    deps = db_sess.query(Department).all()
-    # print(deps)
-    res = make_response(render_template("personal.html", doctors=doctors, deps=deps))
+    specialties = {}
+    for spec in db_sess.query(Department).all():
+        specialties[spec.title] = list(filter(lambda x: x.profession == spec.id, doctors))
+    res = make_response(render_template("personal.html", specialties=specialties))
     return res
+
+    # db_name = "db/doctors.db"
+    # db_session.global_init(db_name)
+    # db_sess = db_session.create_session()
+    # # print('da')
+    # #doctors = db_sess.query(Doctor)
+    # doctors = db_sess.query(Doctor).all()
+    # # for doc in doctors:
+    # #     print(doc.id)
+    # deps = db_sess.query(Department).all()
+    # # print(deps)
+    # res = make_response(render_template("personal.html", doctors=doctors, deps=deps))
+    # return res
 
 
 @app.route('/price')
@@ -135,6 +153,29 @@ def load_user(user_id):
     return db_sess.query(User).get(user_id)
 
 
+@blueprint.route('/api/prices')
+def get_prices():
+    db_name = "db/doctors.db"
+    db_session.global_init(db_name)
+    db_sess = db_session.create_session()
+    prices = db_sess.query(Price).all()
+    departments = db_sess.query(Department).all()
+    dct = {}
+    for d in departments:
+        dct[d.title] = []
+        if d.id not in [14, 15, 16]:
+            dct[d.title].append({'title': 'Консультационный приём',
+                                 'cost': 500})
+            dct[d.title].append({'title': 'Консультационный приём повторный (в течение 1-го месяца)',
+                                 'cost': 300})
+        for p in prices:
+            if p.dep_id == d.id:
+                dct[d.title].append({'title': p.title,
+                               'cost': p.cost})
+    return jsonify(dct)
+
+
 if __name__ == '__main__':
     # serve(app, host='0.0.0.0', port=8080)
+    app.register_blueprint(blueprint)
     app.run(host='0.0.0.0', port=8080)
