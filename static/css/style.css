@@ -1,0 +1,173 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #EAFBF8;
+}
+
+header {
+    background-color: #1CD3A2;
+    color: #FFFFFF;
+    padding-bottom: 0.5%;
+    padding-top: 0.5%;
+    min-height: 180px;
+    box-shadow: 0 0 8px #696969;
+
+    transition: all 0.65s;
+}
+
+header:hover {
+    box-shadow: 0 0 25px #454545;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+.logo {
+    margin-left: 5%;
+    width: 300px;
+    min-width: 350px;
+    float: left;
+
+    transition: all 0.5s;
+}
+
+.logo:hover {
+    color: #DDF4D2;
+    text-shadow: 0 0 20px #696969;
+}
+
+.header-adress {
+    color: #FFFFFF;
+
+    transition: all 0.85s;
+}
+
+.header-adress:hover {
+    color: #D0F0C0;
+    text-shadow: 0 0 20px #696969;
+}
+
+.reg {
+    float: right;
+    right: 1%;
+    position: absolute;
+    font-size: 15pt;
+}
+
+.menu {
+    margin-top: 6%;
+}
+
+.menu-item {
+    padding-right: 30%;
+    padding-left: 30%;
+    min-width: 100px;
+    font-size: 17pt;
+}
+
+.navbar {
+    mragin-right: 0;
+}
+
+footer {
+    background-color: #1CD3A2;
+    color: #FFFFFF;
+    padding-bottom: 0.5%;
+    padding-top: 0.5%;
+    min-height: 100px;
+    box-shadow: 0 0 8px #696969;
+}
+
+.menu-footer {
+    right: 20%;
+    left: 20%;
+    margin-top: 1%;
+}
+
+.block-content {
+    margin-bottom: 3%;
+    margin-top: 2%;
+    min-width: 1300px;
+}
+
+.center-h1 {
+    text-align: center;
+    color: #809D8B;
+    text-shadow: 0 0 3px #A9A9A9;
+    font-size: 50pt;
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+
+.left-h2 {
+    color: #56675C;
+    text-shadow: 0 0 3px #A9A9A9;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    font-size: 30pt;
+}
+
+.doctors {
+    margin-top: 3%;
+}
+
+.doctor-div {
+    display: flex;
+    margintop: 1%;
+    margin-bottom: 5%;
+}
+
+.low-sh {
+    box-shadow: 0 0 5px #A9A9A9;
+}
+
+.doctor-text {
+    margin-left: 3%;
+}
+
+.doctor-name {
+    font-size: 25pt;
+    color: #669E85;
+    text-shadow: 0 0 2px #669E85;
+}
+
+.spec-name {
+    font-size: 20pt;
+    color: #92AB9B;
+    text-shadow: 0 0 1px #92AB9B;
+}
+
+.simple-text {
+    font-size: 15pt;
+    color:  #687D70;
+    text-shadow: 0 0 1px #687D70;
+}
+
+blockquote {
+    color: #BBC4BE;
+    text-shadow: 0 0 1px #BBC4BE;
+}
+
+.sign, .sign:focus {
+    background-color: #40BA84;
+    border-color: #40BA84;
+    box-shadow: 0 0 1px #40BA84;
+    font-size: 15pt;
+    padding: 1%;
+
+    transition: all 0.5s;
+}
+
+.sign:hover, .sign:active {
+    box-shadow: 0 0 20px #40BA84;
+    background-color: #40BA84;
+    border-color: #40BA84;
+}
