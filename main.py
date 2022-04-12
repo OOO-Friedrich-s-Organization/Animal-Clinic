@@ -42,6 +42,7 @@ def doctors():
         specialties[spec.title] = list(filter(lambda x: x.profession == spec.id, doctors))
     res = make_response(render_template("personal.html", specialties=specialties))
     return res
+
     # db_name = "db/doctors.db"
     # db_session.global_init(db_name)
     # db_sess = db_session.create_session()
