@@ -35,15 +35,25 @@ def doctors():
     db_name = "db/doctors.db"
     db_session.global_init(db_name)
     db_sess = db_session.create_session()
-    # print('da')
-    #doctors = db_sess.query(Doctor)
+
     doctors = db_sess.query(Doctor).all()
-    # for doc in doctors:
-    #     print(doc.id)
-    deps = db_sess.query(Department).all()
-    # print(deps)
-    res = make_response(render_template("personal.html", doctors=doctors, deps=deps))
+    specialties = {}
+    for spec in db_sess.query(Department).all():
+        specialties[spec.title] = list(filter(lambda x: x.profession == spec.id, doctors))
+    res = make_response(render_template("personal.html", specialties=specialties))
     return res
+    # db_name = "db/doctors.db"
+    # db_session.global_init(db_name)
+    # db_sess = db_session.create_session()
+    # # print('da')
+    # #doctors = db_sess.query(Doctor)
+    # doctors = db_sess.query(Doctor).all()
+    # # for doc in doctors:
+    # #     print(doc.id)
+    # deps = db_sess.query(Department).all()
+    # # print(deps)
+    # res = make_response(render_template("personal.html", doctors=doctors, deps=deps))
+    # return res
 
 
 @app.route('/price')
