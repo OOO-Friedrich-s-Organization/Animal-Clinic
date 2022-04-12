@@ -171,7 +171,7 @@ def get_prices():
         for p in prices:
             if p.dep_id == d.id:
                 dct[d.title].append({'title': p.title,
-                               'cost': p.cost})
+                                     'cost': p.cost})
     return jsonify(dct)
 
 
