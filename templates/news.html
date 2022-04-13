@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<img src="static/img/intro.jpg" width="1100">
+<div align="center"><b>Здоровый питомец - счастливый питомец!</b></div>
+
+<h1>Лента новостей</h1>
+
+{% for n in news %}
+    <div class="col-md6 border rounded">
+        <h2>{{n.title}}</h2>
+        <p>
+            {{n.content}}
+            <br>
+            <img src="static/img/{{ n.image }}" height="200" width="200">
+            <br>
+            <div align="right">{{n.date}}</div>
+        </p>
+    </div>
+{% endfor %}
+
+{% endblock %}
