@@ -10,6 +10,7 @@ from werkzeug.utils import redirect
 from forms.registration import RegisterForm, LoginForm
 from models import db_session
 from models.doctors import Doctor
+from models.news import News
 from models.prices import Price
 from models.professions import Department
 from models.users import User
@@ -26,7 +27,7 @@ blueprint = flask.Blueprint(
     template_folder='templates'
 )
 
-@app.route('/')
+# @app.route('/')
 @app.route('/build')
 def building():
     return "<h1>Здесь строится ветеринарная клиника!</h1>" \
@@ -100,6 +101,16 @@ def contact():
 @app.route('/test')
 def test():
     res = make_response(render_template("timetable.html"))
+    return res
+
+
+@app.route('/')
+def news():
+    db_name = "db/doctors.db"
+    db_session.global_init(db_name)
+    db_sess = db_session.create_session()
+    wall_news = db_sess.query(News).all()
+    res = make_response(render_template("news.html", news=wall_news))
     return res
 
 
