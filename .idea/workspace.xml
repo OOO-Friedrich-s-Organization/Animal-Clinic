@@ -1,12 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e6144e28-d51e-41d5-b2b5-67cc2cc9d8a4" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+    <list default="true" id="e6144e28-d51e-41d5-b2b5-67cc2cc9d8a4" name="Changes" comment="1">
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_06_04_2022_23_17__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_06_04_2022_23_17__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_06_04_2022_23_27__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_06_04_2022_23_27__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_06_04_2022_23_28__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_06_04_2022_23_28__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/abdullaeva.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/bagrova.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/bulavko.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/golfman.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/img/build.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/img/drujin.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/img/kostomarov.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/img/map.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/img/semashko.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/img/shtraht.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/img/tulskaya.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/kamensky.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/karavanova.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/komarova.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/nesterova.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/prostov.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/vodvorko.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/yaroslavsky.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/zadorojniy.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/zenko.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/zvonareva.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/contacts.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/contacts.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/personal.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/personal.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/price.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/price.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,7 +41,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="andrej" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -30,7 +55,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
   </component>
-  <component name="RunManager" selected="Python.main">
+  <component name="RunManager" selected="Python.main_full">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -44,6 +69,27 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="main_full" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Animal-Clinic" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main_full.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -82,6 +128,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.main_full" />
         <item itemvalue="Python tests.Python tests in main.py" />
         <item itemvalue="Python tests.Python tests for main.test" />
         <item itemvalue="Python.main" />
@@ -91,7 +138,7 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="77d02ff3-4ee4-40c9-8825-1a7fd402aafa" name="Changes" comment="" />
+      <changelist id="e6144e28-d51e-41d5-b2b5-67cc2cc9d8a4" name="Changes" comment="" />
       <created>1649251322209</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />

@@ -10,16 +10,9 @@ body {
 header {
     background-color: #1CD3A2;
     color: #FFFFFF;
-    padding-bottom: 0.5%;
     padding-top: 0.5%;
-    min-height: 180px;
-    box-shadow: 0 0 8px #696969;
-
-    transition: all 0.65s;
-}
-
-header:hover {
-    box-shadow: 0 0 25px #454545;
+    min-height: 181px;
+    width: 100%;
 }
 
 a {
@@ -55,6 +48,11 @@ a:hover {
     text-shadow: 0 0 20px #696969;
 }
 
+.active {
+    color: #E8E8E8;
+    text-shadow: 0 0 10px #949494;
+}
+
 .reg {
     float: right;
     right: 1%;
@@ -63,7 +61,25 @@ a:hover {
 }
 
 .menu {
-    margin-top: 6%;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    background-color: #1CD3A2;
+    width: 100%;
+    box-shadow: 0 10px 10px 0 #BABABA;
+    padding-left: 20%;
+    padding-right: 20%;
+
+    transition: all 1s;
+}
+
+.menu:hover {
+    background-color: #19C899;
+    box-shadow: 0 10px 8px #757575;
+}
+
+header:hover ~ .menu {
+    box-shadow: 0 10px 8px #757575;
 }
 
 .menu-item {
@@ -71,6 +87,12 @@ a:hover {
     padding-left: 30%;
     min-width: 100px;
     font-size: 17pt;
+}
+
+.menu-footer {
+    margin-top: 1%;
+    margin-left: 20%;
+    margin-right: 20%;
 }
 
 .navbar {
@@ -82,14 +104,8 @@ footer {
     color: #FFFFFF;
     padding-bottom: 0.5%;
     padding-top: 0.5%;
-    min-height: 100px;
+    min-height: 300px;
     box-shadow: 0 0 8px #696969;
-}
-
-.menu-footer {
-    right: 20%;
-    left: 20%;
-    margin-top: 1%;
 }
 
 .block-content {
@@ -115,6 +131,14 @@ footer {
     font-size: 30pt;
 }
 
+.left-h2-mini {
+    color: #56675C;
+    text-shadow: 0 0 3px #A9A9A9;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    font-size: 25pt;
+}
+
 .doctors {
     margin-top: 3%;
 }
@@ -133,16 +157,28 @@ footer {
     margin-left: 3%;
 }
 
-.doctor-name {
+.p25pt {
     font-size: 25pt;
     color: #669E85;
     text-shadow: 0 0 2px #669E85;
 }
 
-.spec-name {
+.p20pt {
     font-size: 20pt;
     color: #92AB9B;
     text-shadow: 0 0 1px #92AB9B;
+}
+
+.p20pt2 {
+    font-size: 18pt;
+    color: #648777;
+    text-shadow: 0 0 2px #648777;
+}
+
+.p20pt-dark {
+    font-size: 18pt;
+    color: #4D5D53;
+    text-shadow: 0 0 2px #4D5D53;
 }
 
 .simple-text {
@@ -170,4 +206,39 @@ blockquote {
     box-shadow: 0 0 20px #40BA84;
     background-color: #40BA84;
     border-color: #40BA84;
+}
+
+.price-item {
+    padding-top: 0.3%;
+    padding-bottom: 0.3%;
+    height: 60px;
+
+    transition: all 1s;
+}
+
+.hide {
+    display: none;
+}
+
+.less {
+    border-radius: 0;
+    height: 60px;
+    font-size: 17pt;
+    padding: 0;
+}
+
+.price-item:hover .will-hide {
+    display: none;
+}
+
+.price-item:hover .hide {
+    display: block;
+}
+
+.price-item:hover .less {
+    width: 100%;
+}
+
+.right {
+    text-align: right;
 }

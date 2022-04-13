@@ -32,29 +32,44 @@
                     <font class="p-3">Регистрация</font>
                 </a>
             </nav>
+        </header>
             <nav class="navbar navbar-expand-lg menu">
                 <ul class="navbar-nav">
                     <li class="menu-item">
                         <a class="menu-item nav-link header-adress {{ main_status }}" href="/">Главная</a>
                     </li>
                     <li class="menu-item">
-                        <a class="menu-item nav-link header-adress {{ crew_status }}" href="#">Сотрудники</a>
+                        <a class="menu-item nav-link header-adress {{ crew_status }}" href="/personal">Сотрудники</a>
                     </li>
                     <li class="menu-item">
-                        <a class="menu-item nav-link header-adress {{ price_status }}" href="#">Услуги</a>
+                        <a class="menu-item nav-link header-adress {{ price_status }}" href="/price">Услуги</a>
                     </li>
                     <li class="menu-item">
-                        <a class="menu-item nav-link header-adress {{ self_status }}" href="#">О нас</a>
+                        <a class="menu-item nav-link header-adress {{ self_status }}" href="/about_us">О нас</a>
                     </li>
                 </ul>
             </nav>
-        </header>
         <!-- Begin page content -->
         <main role="main" class="container block-content">
             {% block content %}{% endblock %}
         </main>
         <footer role="contentinfo">
-
+            <nav class="navbar navbar-expand-lg menu-footer">
+                <ul class="navbar-nav">
+                    <li class="menu-item">
+                        <a class="menu-item nav-link header-adress {{ main_status }}" href="/">Главная</a>
+                    </li>
+                    <li class="menu-item">
+                        <a class="menu-item nav-link header-adress {{ crew_status }}" href="/personal">Сотрудники</a>
+                    </li>
+                    <li class="menu-item">
+                        <a class="menu-item nav-link header-adress {{ price_status }}" href="/price">Услуги</a>
+                    </li>
+                    <li class="menu-item">
+                        <a class="menu-item nav-link header-adress {{ self_status }}" href="/about_us">О нас</a>
+                    </li>
+                </ul>
+            </nav>
         </footer>
     </body>
 </html>
