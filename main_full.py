@@ -11,17 +11,6 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = 'yandexlyceum_secret_key'
 
 
-# @app.route('/')
-# @app.route('/build')
-# def building():
-#     return "<h1>Здесь строится ветеринарная клиника!</h1>" \
-#            '<img src="static/img/build.jpg")'\
-#            "alt='стройка идет' width='300' height='300'>" \
-#            "<h2>Мы будем по адресу ул.10 лет Октября, 41!</h2>"\
-#            '<img src="static/img/map.JPG")'\
-#            "alt='адрес' width='600' height='600'>"
-
-
 @app.route('/personal')
 def doctors():
     db_name = "db/doctors.db"
@@ -64,8 +53,8 @@ def price():
 
 
 @app.route('/about_us')
-def contact():
-    res = make_response(render_template("contacts.html", self_status='active'))
+def main():
+    res = make_response(render_template("reviews.html", self_status='active'))
     return res
 
 

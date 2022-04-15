@@ -242,3 +242,45 @@ blockquote {
 .right {
     text-align: right;
 }
+
+.vk-adress {
+    color: #DFE0E7;
+    padding: 21px 11px 26px 9px;
+    background-color: #2a5885;
+    border-radius: 10px;
+}
+
+.vk-adress:hover {
+    background-color: #3576B6;
+    border-radius: 10px;
+    color: #DFE0E7;
+}
+
+.telegram-adress {
+    color: #0088cc;
+    border-radius: 10px;
+}
+
+.contacts {
+    display: flex;
+}
+
+.mt-10 {
+    margin-top: 10px;
+}
+
+.mt-11 {
+    margin-top: 13px;
+}
+
+.contacts-item {
+    min-width: 250px;
+    text-align: center;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.contact-number:hover {
+    color: #575757;
+    text-shadow: 0 0 1px #000000;
+}
