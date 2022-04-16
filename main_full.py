@@ -11,6 +11,12 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = 'yandexlyceum_secret_key'
 
 
+@app.route('/')
+def main():
+    res = make_response(render_template("main.html", main_status='active'))
+    return res
+
+
 @app.route('/personal')
 def doctors():
     db_name = "db/doctors.db"
@@ -53,8 +59,8 @@ def price():
 
 
 @app.route('/about_us')
-def main():
-    res = make_response(render_template("reviews.html", self_status='active'))
+def about_us():
+    res = make_response(render_template("contacts.html", self_status='active'))
     return res
 
 

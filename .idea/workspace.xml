@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="e6144e28-d51e-41d5-b2b5-67cc2cc9d8a4" name="Changes" comment="1">
+      <change beforePath="$PROJECT_DIR$/main_full.py" beforeDir="false" afterPath="$PROJECT_DIR$/main_full.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/img/abdullaeva.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/img/bagrova.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/img/build.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/img/bulavko.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/img/drujin.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/img/golfman.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/img/intro.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/img/kamensky.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/img/karavanova.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/img/komarova.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/img/kostomarov.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/img/map.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/img/nesterova.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/img/prostov.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/img/semashko.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/img/shtraht.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/img/tulskaya.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/img/vodvorko.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/img/yaroslavsky.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/img/zadorojniy.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/img/zenko.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/img/zvonareva.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/news.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/personal.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/price.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/reviews.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/timetable.html" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="27QTU2KhOgjZEvJjOPK2zuqPQ4P" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+  </component>
+  <component name="RunManager" selected="Python.main_full">
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="C:\Users\Gip4eer\AppData\Local\Programs\Python\Python39\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="main_full" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Animal-Clinic" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main_full.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests for main.test" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="Animal-Clinic" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;main.test&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests in main.py" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="Animal-Clinic" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/main.py&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.main_full" />
+        <item itemvalue="Python tests.Python tests in main.py" />
+        <item itemvalue="Python tests.Python tests for main.test" />
+        <item itemvalue="Python.main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e6144e28-d51e-41d5-b2b5-67cc2cc9d8a4" name="Changes" comment="" />
+      <created>1649251322209</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1649251322209</updated>
+    </task>
+    <task id="LOCAL-00001" summary="1">
+      <created>1649266107099</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1649266107099</updated>
+    </task>
+    <task id="LOCAL-00002" summary="1">
+      <created>1649848396204</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1649848396204</updated>
+    </task>
+    <task id="LOCAL-00003" summary="1">
+      <created>1650026118788</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1650026118788</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="andrej" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="1" />
+    <option name="LAST_COMMIT_MESSAGE" value="1" />
+  </component>
+</project>
