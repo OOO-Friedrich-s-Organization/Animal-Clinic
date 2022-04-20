@@ -13,6 +13,7 @@ from models.doctors import Doctor
 from models.news import News
 from models.prices import Price
 from models.professions import Department
+from models.timetable import Timetable
 from models.users import User
 
 app = Flask(__name__)
@@ -92,15 +93,23 @@ def price():
     return res
 
 
-@app.route('/contacts')
-def contact():
-    res = make_response(render_template("contacts.html"))
+@app.route('/timetable')
+def timetable():
+    db_name = "db/doctors.db"
+    db_session.global_init(db_name)
+    db_sess = db_session.create_session()
+    timetable_data = db_sess.query(Timetable).all()
+    docs = db_sess.query(Doctor).all()
+    deps = db_sess.query(Department).all()
+    indexes = [1, 5, 10, 16]
+    res = make_response(render_template("timetable.html", data=timetable_data,
+                                        doctors=docs, deps=deps, indexes=indexes))
     return res
 
 
-@app.route('/test')
-def test():
-    res = make_response(render_template("timetable.html"))
+@app.route('/contacts')
+def contact():
+    res = make_response(render_template("contacts.html"))
     return res
 
 
@@ -188,5 +197,5 @@ def get_prices():
 
 if __name__ == '__main__':
     app.register_blueprint(blueprint)
-    # app.run(host='0.0.0.0', port=8080)
-    serve(app, host='0.0.0.0', port=8080)
+    app.run(host='0.0.0.0', port=8080)
+    # serve(app, host='0.0.0.0', port=8080)
