@@ -1,23 +1,37 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <title>Расписание</title>
-<!--    <meta http-equiv="content-type" content="text/html; charset=utf-8">-->
-<!--    <link rel="stylesheet" href="/styles/style.css">-->
-    <link href="F:/Python/AnimalClinic/styles/style.css" rel="stylesheet">
-</head>
-<body>
-    <table>
-        <tr>
-            <th class="thaha">Понедельник</th>
-            <th>Вторник</th>
-            <th>Среда</th>
-            <th>Четверг</th>
-            <th>Пятница</th>
-            <th>Суббота</th>
-            <th>Воскресенье</th>
-        </tr>
-    </table>
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block content %}
+<h1 align="center">Расписание</h1>
+<table align="center" border="1">
+    <tr>
+        <th>Отделение</th>
+        <th>Доктор</th>
+        <th>Понедельник</th>
+        <th>Вторник</th>
+        <th>Среда</th>
+        <th>Четверг</th>
+        <th>Пятница</th>
+        <th>Суббота</th>
+        <th>Воскреснье</th>
+    </tr>
+    {% for d in data %}
+        {% for dep in deps %}
+            {% for doc in doctors %}
+                {% if doc.id == d.doc_id and doc.profession == dep.id %}
+                    <tr>
+                            <td>{{ dep.title }}</td>
+                            <td>{{ doc.surname }}</td>
+                            <td>{{ d.mon }}</td>
+                            <td>{{ d.tue }}</td>
+                            <td>{{ d.wed }}</td>
+                            <td>{{ d.thu }}</td>
+                            <td>{{ d.fri }}</td>
+                            <td>{{ d.sat }}</td>
+                            <td>{{ d.sun }}</td>
+                    </tr>
+                {% endif %}
+            {% endfor %}
+        {% endfor %}
+    {% endfor %}
+</table>
+{% endblock %}
