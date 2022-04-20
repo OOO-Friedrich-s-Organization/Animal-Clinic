@@ -39,6 +39,13 @@ def building():
            "alt='адрес' width='600' height='600'>"
 
 
+# @app.route('/reception')
+# def reception():
+#     if current_user.is_authenticated:
+#
+#     else:
+#         return 'Вы не авторизованы!!!'
+
 @app.route('/personal')
 def doctors():
     db_name = "db/doctors.db"
@@ -51,19 +58,6 @@ def doctors():
         specialties[spec.title] = list(filter(lambda x: x.profession == spec.id, doctors))
     res = make_response(render_template("personal.html", specialties=specialties))
     return res
-
-    # db_name = "db/doctors.db"
-    # db_session.global_init(db_name)
-    # db_sess = db_session.create_session()
-    # # print('da')
-    # #doctors = db_sess.query(Doctor)
-    # doctors = db_sess.query(Doctor).all()
-    # # for doc in doctors:
-    # #     print(doc.id)
-    # deps = db_sess.query(Department).all()
-    # # print(deps)
-    # res = make_response(render_template("personal.html", doctors=doctors, deps=deps))
-    # return res
 
 
 @app.route('/price')
@@ -93,7 +87,7 @@ def price():
     return res
 
 
-@app.route('/timetable')
+@app.route('/timetable_1')
 def timetable():
     db_name = "db/doctors.db"
     db_session.global_init(db_name)
@@ -101,7 +95,7 @@ def timetable():
     timetable_data = db_sess.query(Timetable).all()
     docs = db_sess.query(Doctor).all()
     deps = db_sess.query(Department).all()
-    indexes = [1, 5, 10, 16]
+    indexes = [1, 6, 12, 18]
     res = make_response(render_template("timetable.html", data=timetable_data,
                                         doctors=docs, deps=deps, indexes=indexes))
     return res
