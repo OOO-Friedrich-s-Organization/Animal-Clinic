@@ -7,6 +7,7 @@ import sqlite3
 
 from werkzeug.utils import redirect
 
+from forms.reception import Reception
 from forms.registration import RegisterForm, LoginForm
 from models import db_session
 from models.doctors import Doctor
@@ -39,12 +40,14 @@ def building():
            "alt='адрес' width='600' height='600'>"
 
 
-# @app.route('/reception')
-# def reception():
-#     if current_user.is_authenticated:
-#
-#     else:
-#         return 'Вы не авторизованы!!!'
+@app.route('/reception')
+def reception():
+    if current_user.is_authenticated:
+        form = Reception()
+        res = make_response(render_template("appointments.html", form=form))
+        return res
+    else:
+        return 'Вы не авторизованы!!!'
 
 @app.route('/personal')
 def doctors():
@@ -87,7 +90,7 @@ def price():
     return res
 
 
-@app.route('/timetable_1')
+@app.route('/timetable')
 def timetable():
     db_name = "db/doctors.db"
     db_session.global_init(db_name)
