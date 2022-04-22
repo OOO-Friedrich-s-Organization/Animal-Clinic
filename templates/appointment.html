@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Запись на прием</h1>
+
+<form action="" method="post">
+    <p>{{ form.department }}</p>
+    <p>{{ form.doctors }}</p>
+    <p>{% set index = namespace(value=0) %}</p>
+
+</form>
+
+<script type="text/javascript" charset="UTF-8">
+dept_select = document.getElementById("dep_id")
+dept_select.onchange = function(){
+request = new XMLHttpRequest()
+url = "/reception?dept_select=" + (dept_select.value).toString()
+request.open("GET", url)
+request.responseType = 'text'
+request.send()
+}
+</script>
+
+{% endblock %}

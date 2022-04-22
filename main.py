@@ -163,6 +163,12 @@ def news():
     return res
 
 
+@app.route('/about_us')
+def about_us():
+    res = make_response(render_template("contacts.html", self_status='active'))
+    return res
+
+
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     form = RegisterForm()
@@ -213,6 +219,13 @@ def load_user(user_id):
     db_session.global_init(db_name)
     db_sess = db_session.create_session()
     return db_sess.query(User).get(user_id)
+
+
+@app.route('/logout')
+@login_required
+def logout():
+    logout_user()
+    return redirect("/")
 
 
 @blueprint.route('/api/prices')
