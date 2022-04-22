@@ -1,14 +1,21 @@
+from tkinter import *
+from tkinter import filedialog
+
 import flask
-from flask import Flask, render_template, make_response, jsonify
+from PyQt5.QtWidgets import QFileDialog, QWidget, QApplication
+from flask import Flask, render_template, make_response, jsonify, url_for, request
 # from flask_login import login_user
 from flask_login import LoginManager, login_user, login_required, logout_user, current_user
 from waitress import serve
 import sqlite3
+import sys
+import shutil
 
 from werkzeug.utils import redirect
 
 from forms.reception import Reception
 from forms.registration import RegisterForm, LoginForm
+from forms.savebut import SaveButton
 from models import db_session
 from models.doctors import Doctor
 from models.news import News
@@ -29,7 +36,7 @@ blueprint = flask.Blueprint(
     template_folder='templates'
 )
 
-# @app.route('/')
+
 @app.route('/build')
 def building():
     return "<h1>Здесь строится ветеринарная клиника!</h1>" \
@@ -44,10 +51,21 @@ def building():
 def reception():
     if current_user.is_authenticated:
         form = Reception()
-        res = make_response(render_template("appointments.html", form=form))
+
+        if request.args.get('dept_select') is not None:
+            print(request.args.get('dept_select'))
+
+        #if form.department.validate_on_submit():
+         #   print("Hello")
+
+        #form.department.select.default = 1
+        #form.department.process()
+
+        res = make_response(render_template("appointment.html", form=form))
         return res
     else:
         return 'Вы не авторизованы!!!'
+
 
 @app.route('/personal')
 def doctors():
@@ -60,6 +78,8 @@ def doctors():
     for spec in db_sess.query(Department).all():
         specialties[spec.title] = list(filter(lambda x: x.profession == spec.id, doctors))
     res = make_response(render_template("personal.html", specialties=specialties))
+
+    print("doctor")
     return res
 
 
@@ -90,18 +110,41 @@ def price():
     return res
 
 
-@app.route('/timetable')
+@app.route('/timetable', methods=['GET', 'POST'])
+@login_required
 def timetable():
-    db_name = "db/doctors.db"
-    db_session.global_init(db_name)
-    db_sess = db_session.create_session()
-    timetable_data = db_sess.query(Timetable).all()
-    docs = db_sess.query(Doctor).all()
-    deps = db_sess.query(Department).all()
-    indexes = [1, 6, 12, 18]
-    res = make_response(render_template("timetable.html", data=timetable_data,
-                                        doctors=docs, deps=deps, indexes=indexes))
-    return res
+    if request.method == "GET":
+        db_name = "db/doctors.db"
+        db_session.global_init(db_name)
+        db_sess = db_session.create_session()
+        timetable_data = db_sess.query(Timetable).all()
+        docs = db_sess.query(Doctor).all()
+        deps = db_sess.query(Department).all()
+        indexes = [1, 6, 12, 18]
+        form = SaveButton()
+        res = render_template("timetable.html", data=timetable_data, doctors=docs, deps=deps, indexes=indexes,
+                              form=form)
+        return res
+    if request.method == "POST":
+        class Form(QWidget):
+            def __init__(self, parent=None):
+                super().__init__(parent)
+
+            def get_directory(self):
+                return QFileDialog.getExistingDirectory(self, "Выбрать папку", ".")
+
+        app = QApplication(sys.argv)
+        ex = Form()
+        directory = ex.get_directory()
+        if directory:
+            shutil.copy('static\docs\Timetable.xlsx', directory)
+
+    return redirect('/timetable')
+
+
+
+# @app.route('/comment')
+# def comment():
 
 
 @app.route('/contacts')
@@ -166,6 +209,8 @@ def login():
 
 @login_manager.user_loader
 def load_user(user_id):
+    db_name = "db/doctors.db"
+    db_session.global_init(db_name)
     db_sess = db_session.create_session()
     return db_sess.query(User).get(user_id)
 
