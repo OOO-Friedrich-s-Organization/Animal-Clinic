@@ -5,6 +5,7 @@ import sqlite3
 from models import db_session
 from models.doctors import Doctor
 from models.prices import Price
+from models.news import News
 from models.professions import Department
 
 app = Flask(__name__)
@@ -13,7 +14,11 @@ app.config['SECRET_KEY'] = 'yandexlyceum_secret_key'
 
 @app.route('/')
 def main():
-    res = make_response(render_template("main.html", main_status='active'))
+    db_name = "db/doctors.db"
+    db_session.global_init(db_name)
+    db_sess = db_session.create_session()
+    wall_news = db_sess.query(News).all()
+    res = make_response(render_template("main.html", news=wall_news[::-1], main_status='active'))
     return res
 
 

@@ -2,36 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e6144e28-d51e-41d5-b2b5-67cc2cc9d8a4" name="Changes" comment="1">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/doctors.db" beforeDir="false" afterPath="$PROJECT_DIR$/db/doctors.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main_full.py" beforeDir="false" afterPath="$PROJECT_DIR$/main_full.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/abdullaeva.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/bagrova.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/build.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/bulavko.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/drujin.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/golfman.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/intro.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/kamensky.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/karavanova.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/komarova.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/kostomarov.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/map.JPG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/nesterova.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/prostov.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/semashko.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/shtraht.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/tulskaya.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/vodvorko.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/yaroslavsky.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/zadorojniy.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/zenko.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/zvonareva.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/news.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/personal.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/price.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/reviews.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/timetable.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/main.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/personal.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/personal.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,6 +30,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Magic_Minerals" />
   </component>
   <component name="RunManager" selected="Python.main_full">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
@@ -78,17 +55,17 @@
       <method v="2" />
     </configuration>
     <configuration name="main_full" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="Animal-Clinic" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="" />
+      <option name="SDK_HOME" value="C:\Users\Gip4eer\AppData\Local\Programs\Python\Python39\python.exe" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
+      <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main_full.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
@@ -132,6 +109,7 @@
         <item itemvalue="Python tests.Python tests in main.py" />
         <item itemvalue="Python tests.Python tests for main.test" />
         <item itemvalue="Python.main" />
+        <item itemvalue="Python tests.Python tests in main.py" />
       </list>
     </recent_temporary>
   </component>
@@ -165,7 +143,28 @@
       <option name="project" value="LOCAL" />
       <updated>1650026118788</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="1">
+      <created>1650096269666</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1650096269666</updated>
+    </task>
+    <task id="LOCAL-00005" summary="1">
+      <created>1650096272984</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1650096272984</updated>
+    </task>
+    <task id="LOCAL-00006" summary="1">
+      <created>1650096318376</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1650096318376</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
