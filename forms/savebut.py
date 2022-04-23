@@ -6,5 +6,7 @@ from wtforms.validators import DataRequired
 
 class SaveButton(FlaskForm):
     save_but = SubmitField('Скачать')
-    #, render_kw={"onclick": "timetable()"}
-    # save_but.
+
+
+class SendButton(FlaskForm):
+    send_but = SubmitField('Оставить отзыв')

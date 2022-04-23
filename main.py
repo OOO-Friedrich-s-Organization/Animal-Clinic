@@ -1,5 +1,4 @@
-from tkinter import *
-from tkinter import filedialog
+import os
 
 import flask
 from PyQt5.QtWidgets import QFileDialog, QWidget, QApplication
@@ -11,11 +10,12 @@ import sqlite3
 import sys
 import shutil
 
-from werkzeug.utils import redirect
+from werkzeug.utils import redirect, secure_filename
 
+from forms.comment import Comment
 from forms.reception import Reception
 from forms.registration import RegisterForm, LoginForm
-from forms.savebut import SaveButton
+from forms.savebut import SaveButton, SendButton
 from models import db_session
 from models.doctors import Doctor
 from models.news import News
@@ -23,9 +23,14 @@ from models.prices import Price
 from models.professions import Department
 from models.timetable import Timetable
 from models.users import User
+from models.сomment import Comments
 
 app = Flask(__name__)
+
+UPLOAD_FOLDER = '/static/img/comments'
+
 app.config['SECRET_KEY'] = 'yandexlyceum_secret_key'
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 login_manager = LoginManager()
 login_manager.init_app(app)
@@ -61,7 +66,7 @@ def reception():
         #form.department.select.default = 1
         #form.department.process()
 
-        res = make_response(render_template("appointment.html", form=form))
+        res = make_response(render_template("appointment.html", form=form, title='Запись на прием'))
         return res
     else:
         return 'Вы не авторизованы!!!'
@@ -77,7 +82,7 @@ def doctors():
     specialties = {}
     for spec in db_sess.query(Department).all():
         specialties[spec.title] = list(filter(lambda x: x.profession == spec.id, doctors))
-    res = make_response(render_template("personal.html", specialties=specialties))
+    res = make_response(render_template("personal.html", specialties=specialties, title='Сотрудники'))
 
     print("doctor")
     return res
@@ -106,7 +111,7 @@ def price():
             pr1.cost = 500
             pr1.dep_id = dep.id
             service.insert(0, pr1)
-    res = make_response(render_template("price.html", service=service, deps=deps))
+    res = make_response(render_template("price.html", service=service, deps=deps, title='Прайс-Лист'))
     return res
 
 
@@ -123,7 +128,7 @@ def timetable():
         indexes = [1, 6, 12, 18]
         form = SaveButton()
         res = render_template("timetable.html", data=timetable_data, doctors=docs, deps=deps, indexes=indexes,
-                              form=form)
+                              form=form, title='Расписание')
         return res
     if request.method == "POST":
         class Form(QWidget):
@@ -142,15 +147,49 @@ def timetable():
     return redirect('/timetable')
 
 
+@app.route('/comment', methods=['GET', 'POST'])
+def comment():
+    if current_user.is_authenticated:
+        form = Comment()
+        if request.method == "POST":
+            if form.validate_on_submit():
+                db_sess = db_session.create_session()
+                # if 'file' not in request.files:
+                #     return redirect(request.url)
+                # file = request.files[form.image.data]
+                # filename = secure_filename(file.filename)
+                # сохраняем файл
+                # file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+                com = Comments(
+                    email=current_user.email,
+                    content=form.content.data,
+                    # image=form.image.data
+                )
+                db_sess.add(com)
+                db_sess.commit()
+                return redirect('/comments')
+        return render_template('comment.html',
+                               title='Оставить отзыв',
+                               form=form
+                               )
+    else:
+        return 'Вы не авторизированы!!!'
 
-# @app.route('/comment')
-# def comment():
 
-
-@app.route('/contacts')
-def contact():
-    res = make_response(render_template("contacts.html"))
-    return res
+@app.route('/comments', methods=['GET', 'POST'])
+def all_comments():
+    form = SendButton()
+    if request.method == "GET":
+        db_name = "db/doctors.db"
+        db_session.global_init(db_name)
+        db_sess = db_session.create_session()
+        comments = db_sess.query(Comments).all()
+        users = db_sess.query(User).all()
+        res = make_response(render_template("comments.html", comments=comments,
+                                            users=users, form=form, title='Отзывы'))
+        return res
+    if request.method == "POST":
+        return redirect('/comment')
 
 
 @app.route('/')
@@ -159,13 +198,13 @@ def news():
     db_session.global_init(db_name)
     db_sess = db_session.create_session()
     wall_news = db_sess.query(News).all()
-    res = make_response(render_template("news.html", news=wall_news))
+    res = make_response(render_template("news.html", news=wall_news, title='Ветклиника "Дом Манула"'))
     return res
 
 
 @app.route('/about_us')
 def about_us():
-    res = make_response(render_template("contacts.html", self_status='active'))
+    res = make_response(render_template("contacts.html", self_status='active', title='О нас'))
     return res
 
 
