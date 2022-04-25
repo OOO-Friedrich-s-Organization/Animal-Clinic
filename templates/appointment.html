@@ -7,18 +7,244 @@
 <form action="" method="post">
     <p>{{ form.department }}</p>
     <p>{{ form.doctors }}</p>
-    <p>{% set index = namespace(value=0) %}</p>
+    <p>{{ form.rec_date }}</p>
+
+    {% for i in range(list_val_len) %}
+        {% if list_val[i][1] == True %}
+            {% if list_val[i][2] != True %}
+            <input type="checkbox" id="time_{{ i+1 }}" name="time_{{ i+1 }}"
+                   onChange="chTimHandler({{ i+1 }})"
+                   value="{{ list_val[i][0].lower() }}" autocomplete="off" checked disabled/>
+            {% else %}
+            <input type="checkbox" id="time_{{ i+1 }}" name="Ваша запись"
+                   onChange="chTimHandler({{ i+1 }})"
+                   value="{{ list_val[i][3].lower() }}" autocomplete="off" checked/>
+            {% endif %}
+        {% else %}
+            <input type="checkbox" id="time_{{ i+1 }}" name="time_{{ i+1 }}"
+                   onChange="chTimHandler({{ i+1 }})"
+                   value="{{ list_val[i][0].lower() }}" autocomplete="off" disabled/>
+        {% endif %}
+            {{ list_val[i][0] }}
+    {% endfor %}
+
+
 
 </form>
 
 <script type="text/javascript" charset="UTF-8">
 dept_select = document.getElementById("dep_id")
+doc_select = document.getElementById("doc_id")
+date_select = document.getElementById("date_id")
+
+var dept_doc_ar = new Array()
+
+note_exist = 0
+
+worktime = 8
+
+window.onload = function(){
+var i = 0
+var j = 0
+var txt = ''
+
+while( i < dept_select.length && j < doc_select.length)
+{
+    tmpAr = new Array()
+    tmpAr.push(dept_select.options[i].innerText)
+    txt = doc_select.options[j].innerText
+    pos = txt.indexOf('\t')
+    dep_index_st = txt.substring(pos)
+    doc_name = txt.substring(0,pos)
+
+    dep_index = dep_index_st
+    while ( j < doc_select.length && dep_index_st == dep_index)
+    {
+        txt = doc_select.options[j++].innerText
+        pos = txt.indexOf('\t')
+        dep_index = txt.substring(pos)
+        doc_name = txt.substring(0,pos)
+        tmpAr.push(doc_name)
+
+        if ( j < doc_select.length )
+        {
+            txt = doc_select.options[j].innerText
+            pos = txt.indexOf('\t')
+            dep_index = txt.substring(pos)
+        }
+    }
+    dept_doc_ar.push(tmpAr)
+    i++
+}
+
+checkNote()
+
+createDocList()
+
+}
+
+function checkNote()
+{
+    note_exist = 0
+    i = 0;
+    while( i < worktime )
+    {
+        txt = "time_"
+        txt += (i + 1).toString()
+        if( document.getElementById(txt).disabled == false ) break;
+        i++;
+    }
+
+    if (i != worktime)
+    {
+        note_exist = i + 1
+    }
+
+    if(note_exist == 0)
+    {
+        tim_note_on()
+    }
+}
+
+function createAppoinTime()
+{
+    i = 0
+    txt = ''
+  /*  while( i < 8 )
+    {
+        txt = "time_"
+        txt += (i + 1).toString()
+        if( i%2 != 0 ) document.getElementById(txt).checked = false
+        else document.getElementById(txt).checked = true
+        i++
+    }*/
+  /*  j = 0;
+    while( i < 8 )
+    {
+        txt = "time_"
+        txt += (i + 1).toString()
+        alert( document.getElementById(txt).name )
+        i++
+    }*/
+}
+
+function tim_note_on()
+{
+    i = 0;
+    while( i < worktime )
+    {
+        txt = "time_"
+        txt += (i + 1).toString()
+        if( document.getElementById(txt).checked == false )
+         {
+            document.getElementById(txt).disabled = false
+          }
+        i++;
+    }
+}
+
+function tim_note_off()
+{
+    i = 0;
+    while( i < worktime )
+    {
+        txt = "time_"
+        txt += (i + 1).toString()
+        if( note_exist != (i + 1) )
+         {
+            document.getElementById(txt).disabled = true
+          }
+        i++;
+    }
+}
+
+function chTimHandler(tim_pos)
+{
+    txt = "time_"
+    txt += (tim_pos).toString()
+    if(note_exist == tim_pos)
+    {
+        if (document.getElementById(txt).checked == false)
+        {
+           note_exist = 0
+           tim_note_on()
+        }
+        else
+        {
+            note_exist = tim_pos
+            tim_note_off()
+        }
+    }
+    else
+    {
+        if (document.getElementById(txt).checked == true)
+        {
+            note_exist = tim_pos
+            tim_note_off()
+        }
+        else
+        {
+            note_exist = 0
+            tim_note_on()
+        }
+    }
+
+}
+
+function createDocList()
+{
+    while (doc_select.options.length) doc_select.remove(0)
+    txt = dept_select.options[dept_select.selectedIndex].innerText
+    i = 0
+    txt_1 = ''
+    while( i < dept_doc_ar.length && txt_1 != txt)
+    {
+        txt_1 = dept_doc_ar[i++][0]
+    }
+    i --
+    j = 1
+    while(j < dept_doc_ar[i].length)
+    {
+        txt = dept_doc_ar[i][j]
+        doc_select.options[doc_select.options.length] = new Option(txt, txt)
+        j ++
+    }
+}
+
 dept_select.onchange = function(){
+
+createDocList()
+
+doc_name = doc_select.options[doc_select.selectedIndex].innerText
+rec_date = date_select.options[date_select.selectedIndex].innerText
+
 request = new XMLHttpRequest()
-url = "/reception?dept_select=" + (dept_select.value).toString()
+url = "/reception?doc_name=" + doc_name + "&rec_date=" + rec_date
 request.open("GET", url)
+request.onreadystatechange = ReadRecTimeTable
 request.responseType = 'text'
 request.send()
+
+}
+
+function ReadRecTimeTable()
+{
+    if ( request.readyState == 4 )
+    {
+        if (request.status == 200)
+        {
+            alert("Передача данных завершена");
+        }
+       else
+       {
+        alert("Ошибка передачи данных");
+       }
+    }
+}
+
+
+date_select.onchange = function(){
+pos = date_select.selectedIndex
 }
 </script>
 

@@ -55,18 +55,54 @@ def building():
 @app.route('/reception')
 def reception():
     if current_user.is_authenticated:
+        fio = 'Штрахт М.Г.'
+        db_name = "db/doctors.db"
+        db_session.global_init(db_name)
+        db_sess = db_session.create_session()
+
+        doctor = db_sess.query(Doctor).all()
+        #doctora = {}
+        #for d in doctor:
+       #     doctora[f'{d.surname} {d.name[0]}.{d.sec_name[0]}.'] = d.id
+        #id = doctora[fio]
+        #ttable = db_sess.query(Timetable).filter(Timetable.doc_id == id).first()
+        #date = '3 27 04'
+       # day_of_weeks = {'1': 'mon', '2': 'tue', '3': 'wed', '4': 'thu', '5': 'fri', '6': 'sat', '7': 'sun'}
+        list_val = []
+        # work_time = eval(f'ttable.{day_of_weeks[date[0]]}')
+        #
+        # if work_time != '-':
+        #     time_from, time_to = work_time.split('-')
+        #     time_from = time_from.split(':')
+        #     while time_from != time_to.split(':'):
+        #         list_val.append(':'.join(time_from))
+        #         if time_from[1] == '30':
+        #             time_from[0] = str(int(time_from[0]) + 1)
+        #             time_from[1] = '00'
+        #         else:
+        #             time_from[1] = '30'
+
+        doc_name = ''
+        if request.args.get('doc_name') is not None:
+            doc_name = request.args.get('doc_name')
+            print(doc_name)
+
         form = Reception()
-
-        if request.args.get('dept_select') is not None:
-            print(request.args.get('dept_select'))
-
-        #if form.department.validate_on_submit():
-         #   print("Hello")
-
-        #form.department.select.default = 1
-        #form.department.process()
-
-        res = make_response(render_template("appointment.html", form=form, title='Запись на прием'))
+        doc_name = ''
+        if (len(doc_name) != 0):
+            list_val = [['14:00', True, False], ['14:30', True, False], ['15:00', True, False],
+                        ['15:30', True, False],
+                        ['16:00', True, False], ['16:30', True, False], ['17:00', False, False],
+                        ['17:30', False, False]]
+            res = make_response(render_template("appointment.html", form=form, title='Запись на прием',
+                                                list_val=list_val, list_val_len=len(list_val)))
+        else:
+            list_val = [['10:00', True, False], ['10:30', True, True, '27 апреля 10:30'],
+                        ['11:00', True, False], ['11:30', True, False],
+                        ['12:00', True, False], ['12:30', True, False], ['13:00', False, False],
+                        ['13:30', False, False]]
+            res = make_response(render_template("appointment.html", form=form, title='Запись на прием',
+                                                list_val=list_val, list_val_len=len(list_val)))
         return res
     else:
         return 'Вы не авторизованы!!!'
@@ -111,7 +147,7 @@ def price():
             pr1.cost = 500
             pr1.dep_id = dep.id
             service.insert(0, pr1)
-    res = make_response(render_template("price.html", service=service, deps=deps, title='Прайс-Лист'))
+    res = make_response(render_template("price.html", service=service, specialties=deps, title='Прайс-Лист'))
     return res
 
 
