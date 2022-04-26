@@ -326,7 +326,7 @@ def get_prices():
 
 
 if __name__ == '__main__':
-    app.register_blueprint(blueprint)
+    #app.register_blueprint(blueprint)
     #app.run(host='0.0.0.0', port=8080)
     port = int(os.environ.get('PORT', 33507))
-    serve(app, host=args.host, port=port)
+    serve(app, host='0.0.0.0', port=port)
