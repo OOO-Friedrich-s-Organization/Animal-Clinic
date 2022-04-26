@@ -1,12 +1,11 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>Авторизация</h1>
-    <form action="" method="post">
+    <h1 class="center-h1"><b>Авторизация</b></h1>
+    <form action="" method="post"  class="width-40">
         {{ form.hidden_tag() }}
         <p>
-            {{ form.email.label }}<br>
-            {{ form.email(class="form-control", type="email") }}<br>
+            {{ form.email(class="form-control myformelem", type="email",  placeholder="Почта") }}
             {% for error in form.email.errors %}
                 <div class="alert alert-danger" role="alert">
                     {{ error }}
@@ -14,16 +13,16 @@
             {% endfor %}
         </p>
         <p>
-            {{ form.password.label }}<br>
-            {{ form.password(class="form-control", type="password") }}<br>
+            {{ form.password(class="form-control myformelem", type="password",  placeholder="Пароль") }}
             {% for error in form.password.errors %}
                 <div class="alert alert-danger" role="alert">
                     {{ error }}
                 </div>
             {% endfor %}
         </p>
-        <p>{{ form.remember_me() }} {{ form.remember_me.label }}</p>
-        <p>{{ form.submit(type="submit", class="btn btn-primary") }}</p>
+        <p class="p15pt">{{ form.remember_me() }} {{ form.remember_me.label }}</p>
+        <p>{{ form.submit(type="submit", class="btn btn-primary sign pl-3 pr-3") }}</p>
         <div>{{ message }}</div>
+        <p class="p15pt">Ещё нет аккаунта?<br>Тогда <a href="../register">зарегистрируйтесь.</a></p>
     </form>
 {% endblock %}
