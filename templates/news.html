@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="container_slider_css">
+        <img class="photo_slider_css" src="static/img/banners/4.jpg" alt="">
+        <img class="photo_slider_css" src="static/img/banners/3.jpg" alt="">
+        <img class="photo_slider_css" src="static/img/banners/2.jpg" alt="">
+        <img class="photo_slider_css" src="static/img/banners/1.jpg" alt="">
+    </div>
+    <h1 class="center-h1 center-h1-v2 mb-100"><b>Здоровый питомец - счастливый питомец!</b></h1>
+    <h1 class="center-h1"><b>Новости</b></h1>
+
+    {% for n in news %}
+        {% if loop.index0 % 2 == 0 %}
+            <div class="block-news">
+                <div class="block-new">
+                    <h2 class="left-h2"><b>{{n.title}}</b></h2>
+                    <div class="new">
+                        <img src="static/img/news/{{ n.image }}" class="news-img">
+                        <div class="news-content">
+                            <font class="simple-text simple-text-plus">
+                                {{n.content}}
+                            </font>
+                            <p class="simple-text date">{{n.date}}</p>
+                        </div>
+                    </div>
+                </div>
+                {% if not loop.last %}
+                    <div class="block-new">
+                        <h2 class="left-h2"><b>{{ news[loop.index].title }}</b></h2>
+                        <div class="new">
+                            <img src="static/img/news/{{ news[loop.index].image }}" class="news-img">
+                            <div class="news-content">
+                                <font class="simple-text simple-text-plus">
+                                    {{ news[loop.index].content }}
+                                </font>
+                                <p class="simple-text date">{{ news[loop.index].date }}</p>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+        {% endif %}
+    {% endfor %}
+
+{% endblock %}

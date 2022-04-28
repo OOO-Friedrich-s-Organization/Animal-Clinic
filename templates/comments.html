@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2 class="left-h2 mt-50"><b>Отзывы</b></h2>
+    <form action="" method="post">
+        <p>{{ form.send_but(type="submit", class="btn btn-primary sign pr-3 pl-3 w-100") }}</p>
+    </form>
+    <div class="comments">
+        {% for c in comments[::-1] %}
+            {% for u in users %}
+                {% if u.email == c.email %}
+                    <div class="comment">
+                        <p class="comment-name"><b>{{u.name}} {{u.surname}}</b></p>
+                        <p class="comment-content">{{ c.content }}</p>
+                        <hr>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        {% endfor %}
+    </div>
+{% endblock %}

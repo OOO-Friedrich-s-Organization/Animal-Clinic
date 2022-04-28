@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1 class="center-h1"><b>Регистрация</b></h1>
+    <form action="" method="post" class="width-40">
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.name(class="form-control myformelem",  placeholder="Имя") }}
+            {% for error in form.name.errors %}
+                <p class="alert alert-danger" role="alert">
+                    <p class="p15pt">{{ error }}</p>
+                </p>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.surname(class="form-control myformelem",  placeholder="Фамилия") }}
+            {% for error in form.surname.errors %}
+                <p class="alert alert-danger" role="alert">
+                    <p class="p15pt">{{ error }}</p>
+                </p>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.email(class="form-control myformelem", type="email",  placeholder="Почта") }}
+            {% for error in form.email.errors %}
+                <p class="alert alert-danger" role="alert">
+                    <p class="p15pt">{{ error }}</p>
+                </p>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.password(class="form-control myformelem", type="password",  placeholder="Пароль") }}
+            {% for error in form.password.errors %}
+                <p class="alert alert-danger" role="alert">
+                    <p class="p15pt">{{ error }}</p>
+                </p>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.password_again(class="form-control myformelem", type="password",  placeholder="Повторите пароль") }}
+            {% for error in form.password_again.errors %}
+                <p class="alert alert-danger" role="alert">
+                    <p class="p15pt">{{ error }}</p>
+                </p>
+            {% endfor %}
+        </p>
+        <p>{{ form.submit(type="submit", class="btn btn-primary sign pl-3 pr-3") }}</p>
+        <p class="p15pt">{{ message }}</p>
+        <p class="p15pt">Уже есть аккаунт?<br>Тогда <a href="../login">войдите.</a></p>
+    </form>
+{% endblock %}

@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet"
+              href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+              integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+              crossorigin="anonymous">
+        <link rel="stylesheet" href="static/css/style.css">
+        <title>{{title}}</title>
+    </head>
+    <body>
+        <header>
+            <div class="logo">
+                <div>
+                    <a href="/">
+                        <img src="static/img/logo/light-logo.png" class="logo-png">
+                    </a>
+                </div>
+                <div class="logo-txt">
+                    <a href="/" class="header-adress">
+                        <h1>ДОМ МАНУЛА</h1>
+                        <h3>
+                            Ветеринарная клиника<br>
+                            города Омск
+                        </h3>
+                    </a>
+                </div>
+            </div>
+            {% if not current_user.is_authenticated %}
+                <nav class="reg">
+                    <a href="/login" class="header-adress">
+                        <font class="p-3">Вход</font>
+                    </a>
+                    <a href="/register" class="header-adress">
+                        <font class="p-3">Регистрация</font>
+                    </a>
+                </nav>
+            {% else %}
+                <nav class="reg">
+                    <a class="header-adress" href="/logout">
+                        <font class="p-3">{{ current_user.name }} {{ current_user.surname }}</font></a>
+                </nav>
+            {% endif %}
+        </header>
+            <div class="menu">
+                <ul class="nav nav-pills nav-fill">
+                    <li class="nav-item menu-item">
+                        <a class="menu-item nav-link header-adress {{ main_status }}" href="/">Главная</a>
+                    </li>
+                    <li class="nav-item menu-item">
+                        <a class="menu-item nav-link header-adress {{ crew_status }}" href="/personal">Сотрудники</a>
+                    </li>
+                    <li class="nav-item menu-item">
+                        <a class="menu-item nav-link header-adress {{ price_status }}" href="/price">Услуги</a>
+                    </li>
+                    <li class="nav-item menu-item">
+                        <a class="menu-item nav-link header-adress {{ time_status }}" href="/timetable">Расписание</a>
+                    </li>
+                    <li class="nav-item menu-item">
+                        <a class="menu-item nav-link header-adress {{ self_status }}" href="/about_us">О нас</a>
+                    </li>
+                    <li class="nav-item menu-item">
+                        <a class="menu-item nav-link header-adress {{ reviews_status }}" href="/comments">Отзывы</a>
+                    </li>
+                    <li class="nav-item menu-item">
+                        <a class="menu-item-perfomanse nav-link header-adress" href="/note">Запись на прием</a>
+                    </li>
+                </ul>
+            </div>
+        <!-- Begin page content -->
+        <main role="main" class="container block-content">
+            {% block content %}{% endblock %}
+        </main>
+        <footer role="contentinfo">
+            <nav class="navbar navbar-expand-lg footer-menu">
+                <div class="contacts-item">
+                    <p class="p20pt mt-11 light width-300">8 (908) 106-58-99</p>
+                </div>
+                <div class="contacts-item">
+                    <a class="menu-item nav-link header-adress width-300" href="lyceum@yandex-team.ru">lyceum@yandex-team.ru</a>
+                </div>
+                <div class="contacts-item width-300">
+                    <p class="mt-10">
+                        <a href="https://vk.com/public212436945" class="vk-adress" target="_blank">
+                            <svg width="50" height="50" viewBox="0 0 24 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M11.7423 13.9414H13.1768C13.1768 13.9414 13.6102 13.8927 13.8314 13.6489C14.035 13.425 14.0285 13.0046 14.0285 13.0046C14.0285 13.0046 14.0005 11.0363 14.8939 10.7464C15.7746 10.4609 16.9055 12.6487 18.1042 13.49C19.0106 14.1266 19.6994 13.987 19.6994 13.987L22.9044 13.9414C22.9044 13.9414 24.5811 13.8358 23.7861 12.4878C23.7209 12.3776 23.3231 11.4907 21.403 9.66834C19.3934 7.76103 19.6625 8.06953 22.0834 4.7703C23.5577 2.76104 24.1471 1.53436 23.963 1.00898C23.7874 0.508577 22.7031 0.64084 22.7031 0.64084L19.0943 0.663828C19.0943 0.663828 18.8268 0.626514 18.6284 0.747782C18.4345 0.866719 18.3097 1.1439 18.3097 1.1439C18.3097 1.1439 17.7386 2.69874 16.9768 4.02103C15.3699 6.8112 14.7274 6.95846 14.4648 6.78522C13.8539 6.38143 14.0064 5.16309 14.0064 4.29755C14.0064 1.59366 14.4074 0.466267 13.2254 0.174424C12.8331 0.0774756 12.5444 0.0135099 11.5412 0.00318205C10.2536 -0.0104773 9.16374 0.00717947 8.54665 0.316347C8.13612 0.521904 7.81942 0.979992 8.01231 1.00631C8.2508 1.03896 8.79101 1.15523 9.0774 1.55402C9.4472 2.06841 9.43417 3.22379 9.43417 3.22379C9.43417 3.22379 9.6466 6.40675 8.93795 6.80221C8.45151 7.0734 7.78424 6.51969 6.35162 3.98838C5.61756 2.69174 5.06334 1.25851 5.06334 1.25851C5.06334 1.25851 4.95647 0.990652 4.76587 0.847396C4.53454 0.673822 4.21133 0.618519 4.21133 0.618519L0.782112 0.641506C0.782112 0.641506 0.267322 0.656166 0.0783484 0.885043C-0.0897729 1.0886 0.0649898 1.50971 0.0649898 1.50971C0.0649898 1.50971 2.74972 7.93227 5.78959 11.1689C8.57695 14.1363 11.7423 13.9414 11.7423 13.9414Z" fill="#FFFFFF"></path>
+                            </svg>
+                        </a>
+                    </p>
+                </div>
+            </nav>
+        </footer>
+    </body>
+</html>
